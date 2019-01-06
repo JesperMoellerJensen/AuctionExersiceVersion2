@@ -30,10 +30,11 @@ namespace AuctionVersion2.Services
         {
             var auctionItem = _context.AuctionItems.FirstOrDefault(a => a.ItemNumber == bid.ItemNumber);
 
-            auctionItem.ItemNumber = bid.ItemNumber;
             auctionItem.BidCustomName = bid.BidCustomName;
             auctionItem.BidCustomPhone = bid.BidCustomPhone;
             auctionItem.BidPrice = bid.BidPrice;
+            auctionItem.BudTimeStamp = DateTime.Now;
+
         }
 
         public bool Save()

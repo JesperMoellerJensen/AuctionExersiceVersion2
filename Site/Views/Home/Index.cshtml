@@ -1,0 +1,38 @@
+﻿@model List<AuctionItem>
+
+<h1>Auction List</h1>
+
+<table style="width:100%">
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Bid Price</th>
+        <th>Bid Timestamp</th>
+        <th>Description</th>
+        <th>Item Number</th>
+        <th>Rating Price</th>
+        <th></th>
+    </tr>
+    @{
+        foreach (AuctionItem item in Model)
+        {
+            <tr>
+                <td>@item.BidCustomName</td>
+                <td>@item.BidCustomPhone</td>
+                <td>@item.BidPrice</td>
+                <td>@item.BudTimeStamp</td>
+                <td>@item.ItemDescription</td>
+                <td>@item.ItemNumber</td>
+                <td>@item.RatingPrice</td>
+                <td><a asp-controller="Home" asp-action="Details" asp-route-itemNumber="@item.ItemNumber">Details</a></td>
+            </tr>
+        }
+    }
+</table>
+<br />
+<form asp-controller="Home" asp-action="MyAuctions" method="get">
+
+    <label>Name</label> <input type="text" name="name"/> <br />
+
+    <button type="submit">My Auctions</button>
+</form>

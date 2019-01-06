@@ -1,0 +1,40 @@
+﻿@model AuctionItem
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2>Bid on item number: @Model.ItemNumber</h2>
+
+<form asp-controller="Home" asp-action="Details" method="post">
+
+    <label>Name</label> <input asp-for="BidCustomName" /> <br />
+    <span asp-validation-for="BidCustomName"></span><br />
+    <label>Phone</label> <input asp-for="BidCustomPhone" /> <br />
+    <span asp-validation-for="BidCustomPhone"></span><br />
+    <label>Bid Price</label> <input asp-for="BidPrice" /> <br />
+
+    <label>Bid Timestamp</label> @Model.BudTimeStamp<br />
+    <label>Description</label> @Model.ItemDescription<br />
+    <label>Item Number</label> @Model.ItemNumber<br />
+    <label>Rating Price</label> @Model.RatingPrice<br />
+    <input asp-for="ItemNumber" type="hidden" />
+    <input asp-for="ItemDescription" type="hidden" />
+    <input asp-for="RatingPrice" type="hidden" />
+    <input asp-for="BudTimeStamp" type="hidden" />
+
+    <button type="submit">Save Bid</button>
+</form>
+
+@{
+    if (ViewBag.BidComepleted != null)
+    {
+        if ((bool) ViewBag.BidComepleted)
+        {
+            <h2>Bid Accepted</h2>
+        }
+        else
+        {
+            <h2>Bid Denied</h2>
+        }
+    }
+}
+<br />
+<a asp-controller="Home" asp-action="Index">Back to Auction</a>
