@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AuctionVersion2.Entities;
+using AuctionVersion2.Model;
 
 namespace AuctionVersion2.Services
 {
@@ -25,9 +26,14 @@ namespace AuctionVersion2.Services
             return _context.AuctionItems.FirstOrDefault(a => a.ItemNumber == itemNumber);
         }
 
-        public string ProvideBid(int itemNumber, int bidPrice, string bidCustomName, string bidCustomPhone)
+        public void ApplyBid(Bid bid)
         {
-            throw new NotImplementedException();
+            var auctionItem = _context.AuctionItems.FirstOrDefault(a => a.ItemNumber == bid.ItemNumber);
+
+            auctionItem.ItemNumber = bid.ItemNumber;
+            auctionItem.BidCustomName = bid.BidCustomName;
+            auctionItem.BidCustomPhone = bid.BidCustomPhone;
+            auctionItem.BidPrice = bid.BidPrice;
         }
 
         public bool Save()

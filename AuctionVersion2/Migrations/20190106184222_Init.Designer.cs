@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuctionVersion2.Migrations
 {
     [DbContext(typeof(AuctionContext))]
-    [Migration("20190106170410_Init")]
+    [Migration("20190106184222_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

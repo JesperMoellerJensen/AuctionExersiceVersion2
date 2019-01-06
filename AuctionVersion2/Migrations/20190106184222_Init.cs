@@ -14,7 +14,7 @@ namespace AuctionVersion2.Migrations
                 {
                     ItemNumber = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Description = table.Column<string>(nullable: true),
+                    ItemDescription = table.Column<string>(nullable: true),
                     RatingPrice = table.Column<long>(nullable: false),
                     BidPrice = table.Column<long>(nullable: false),
                     BidCustomName = table.Column<string>(nullable: true),
